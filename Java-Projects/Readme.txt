@@ -1,0 +1,1 @@
+The java projects folder to create applications related to java and so on.
