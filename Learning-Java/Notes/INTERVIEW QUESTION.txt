@@ -1,0 +1,345 @@
+Interview Help
+Q) What are constructors? How do they differ from other methods of the class? Can we invoke one constructor from another constructor. And can we invoke the super classes constructor from the child class constructor
+
+A) A constructor is a method that is used to initialise the properties of an object when it is created. It has the same name as the class name, unlike the other methods. In this case class Accord the constructor is also Accord, But the other methods start and stop have different names of their own. But the constructor name is the same name as the class name. The constructor is only invoked when the instance or the object of that class is created; whereas the other methods can be invoked as many times as we want. To invoke the other constructors in the same class we use this() method. And we can pass in the parameters just like any other method.
+
+class Accord{
+
+Accord(){
+
+int x=10;
+
+this(x);
+
+}
+
+Accord(int x){
+
+………….
+
+}
+
+And if the class Accord extends class Honda to invoke the superclass constructor, the Honda's constructor from within the child class constructor. We use the super() method and pass in any parameters.
+
+class Accord extends Honda{
+
+Accord(){
+
+super(x);
+
+}
+
+Q) What is method overloading and what is method overriding and what are the key differences?
+
+A) Method overloading is where we define multiple methods with the same name in the same class but with different parameters or different signatures. Here I have three add methods. The first one takes two integers, The second one takes three integers and the last one takes a float, a double and an integer.
+
+Method overloading is also known as compile time polymorphism. As the compiler decides which method needs to be invoked, based on the parameters that are being passed in.
+
+Method overriding happens in inheritance or parent child relationship, wherein a method defined on the parent class will be overridden again by the child class with the same exact signature, but to do a different work.
+
+Here in case of IPhone12 and IPhone11, IPhone12 extends IPhone11 but it wants to override the implementation of selectPhotos() to give a better user experience.
+
+class IPhone11 {
+
+selectPhotos(){
+
+severalOtherCoolFeatures(){
+
+class IPhone12 extends IPhone11 {
+
+showPhotos(){
+
+//IPhone 12s own implementation
+
+Through method overriding we achieve Runtime polymorphism. That is, here I have class A with a compute method, Class B and C extends class A and they override the compute method.
+
+class A {
+
+compute(){
+
+……….
+
+class B extends A{
+
+compute(){
+
+……….
+
+class C extends A{
+
+compute(){
+
+……….
+
+C c = new A();
+
+c.compute(); //Will invoke As compute method
+
+c = new B();
+
+c.compute(); //Will invoke Bs compute method
+
+When we instantiate B, we can assign it to a reference type of A because A is the parent class. Now we instantiate C and assign it to A as well.If we invoke the compute method on object a, the JVM will dynamically decide that A is pointing to C at runtime and it will invoke the compute method on C and not B or A.This is Runtime polymorphism.
+
+Q)What are the usages or differences between final, finally and finalize?
+
+A) Final is a keyword that when we mark variables, for example primitive types, they become constants. We cannot do this once we define int I = 123; as final the value of I can not be changed.
+
+If we use it against an object declaration, the object reference cannot change later on. We cannot point the object to a different memory location,
+
+When we use it against a class, that class cannot be inherited and when used against a method we cannot override that method in a child class.
+
+finally is a block, when we do exception handling we use it along with try- catch. We can also use finally without a catch, directly with
+
+try. finally gets executed even when there is an exception and also when there is no exception it gets executed always. It's a good place to put all the clean up code where we can clean up all the DB connections, the socket connections or input output file streams.
+
+Starting Java 7,We have a try with resource block, which when used automatically closes all the resources that are declared inside the resource block, if we use the try with resource block then we don't need the finally.
+
+Finally we have the finalize() method which the JVM calls when the garbage collector is about to be called. But we should not rely on this to clean up all our resources in the program or application because we never know when the JVM is going to call the garbage collector.
+
+Q) What are Generics and what is Type Erasure?
+
+A) Prior to Java 1.5 version, this is how we defined a collection. Here I have a list into which I want to store all the employee ids which are integer values.
+
+List employeeIds= new ArrayList();
+
+When I do this it is fine, I'm adding an integer.
+
+l.add(1);
+
+Even when I do this where I'm trying to add a string accidentally, the name of the employee that is allowed as well because there is no way of mentioning the type when declaring a collection.
+
+l.add("Rob");
+
+That is where Generics came in starting Java version 1.5. Using Generics we can specify or abstract out the type of data that can go into the collection. Now if we try to add an integer, no compile time issues. If I try to add a string the compiler will catch it right at compile time and throw an error.
+
+List<Integer> employeeIds = new ArrayList<>();
+
+l.add(1);
+
+l.add("Rob"); //Will result in a compile time error
+
+Type Erasure is the process of the compiler erasing this type for runtime. Once it does its checks, the compiler will erase this type because of compatibility reasons.
+
+Because we want the versions, the older version code, probably the code written on Java 1.4 or 1.3 to run on the new JVMs.
+
+That is the reason, for backward compatibility reasons, Runtime generics has been compromised or runtime Generics is not present in Java. It is all compile time generics.
+
+Type Erasure implements compile time Generics by erasing the type for runtime so that the older versions of Java code which is compiled on JDK 1.4 or 1.3 can still run on the newer JVMs.
+
+Q) What the difference between the == operator, the double equals operator and the equals method when we compare objects,
+
+A) Let's take a look at the == operator by creating two objects of User. Here we are creating two instances, u1 and u2 of a class called User and setting the ids to 1 and John. Both of them have the same id and name but they have their own memory locations on the heap.
+
+User user1 = new User(1,"John");
+
+User user2 = new User(1,"John");
+
+Now if we use the double equal to operator to compare these two objects, u1==u2, it will return a Boolean false. Because the double equals compares the object references or the memory locations and not the contents within the object. You can call it a shallow comparison and not a deep comparison.
+
+Now if you use the equals’ method u1.equals(u2), the equals method is available for every Java class from the Object class every class implicitly extends the Object class and the equals method is derived or inherited from the Object class.
+
+The default implementation of the equals method uses the == operator. It is a shallow comparison by default even this one, this statement u1.equals(u2) will return a false. We have to override the equals method in our classes, the User class and provide the implementation to compare the id and name.
+
+There is an exception for strings, primitives and enums. For the wrapper type strings and enums, the equals method is already overridden to do a deep comparison.
+
+For example if we create two strings with the same contents abc and abc, s1 == s2 will return false because we are using a new operator to create a string in both cases.
+
+They both have two different memory locations. This will return a false . But if we use the s1.equals(s2) it will do a deep comparison because the equals method is overridden on a string class and it will return a true.
+
+Similarly for the wrapper types, Integer i1 = 123; Integer i2 = 123 , if we do a i1 == i2, it will return a false. But if we do i1.equals(i2), it will return a true.
+
+To summarise, the == operator compares or looks for the references or compares the references of two objects. By default the equals’ method also does the same. We should override the equals method and do a deep comparison and return a Boolean value on our own. For the string primitive types and enums, the equals method will do a deep comparison of the contents.
+
+Q) What are class loaders and how does class loading work in java?
+
+A) In Java, classes are loaded into memory by class loaders. There are multiple class loaders and they will load the classes in a hierarchical fashion.
+
+The very first class in the application is loaded by using the static main method. When the JVM invokes that method, it'll first load the class and then it will invoke it from that point and all the classes are loaded as required by this particular class.
+
+The core class loader, the parent in the JVM is called a Bootstrap Classloader. It loads all the classes in the JRE lib folder, all the system libraries or the JDK libraries that come with the JDK or JRE installation.
+
+The Extension Class loader loads all the classes and jars under the ext folder of the JRE.If we put any third party jars in here that we need for our application, this Class loader is responsible for loading them as required.
+
+Then comes the System Class loader which loads everything on the class path which we place on the class path, like jdbcjar, hibernatejar, Spring classes, etc.
+
+The JVM provides hooks using which we can write our own custom class loaders. We rarely do this but application server developers, weblogic, websphere, JBoss, etc. They are the ones who write their own custom class loaders as required.
+
+The Extension class loader is a child of Bootstrap classloader. Similarly the System class loader is the child of the Extension class loader. So the child class loaders will always have access to the parent, classes loaded by the parent class loader but not the other way around.
+
+The parent cannot access the child class. Class loader and the child class loader Before they load a particular class into memory and they will request the parent to load it. And if the parent already has loaded it then there is no need to load it, in that way, our application will perform better.
+
+And these class loaders, if there is a class could not be found when they're trying to load it, they will throw a ClassNotFoundException. The JVM will throw this exception, Another way to dynamically load a class in our application at runtime is by using the Class.forName() method and provide the class name. This method also throws a ClassNotFoundException if this particular class is not there on the class path.
+
+Once this class is loaded like this, we can create an instance of it and invoke the methods on it dynamically using the Reflection API.
+
+Q) How will you create a custom annotation
+
+A) import java.lang.annotation.ElementType;
+
+import java.lang.annotation.Retention;
+
+import java.lang.annotation.RetentionPolicy;
+
+import java.lang.annotation.Target;
+
+@Retention(RetentionPolicy.RUNTIME)
+
+@Target(ElementType.METHOD)
+
+public @interface MyAnnotation {
+
+}
+
+For Method level annotation type use
+
+@Target(ElementType.METHOD)
+
+For Field level annotation type use
+
+@Target(ElementType.FIELD)
+
+
+
+Q) What are the different String classes?
+
+Strings which are immutable.
+
+String s1 = "six";
+
+StringBuffer is mutable, hence you can add strings to it, and when required, convert to a String with the toString( ) method.All the methods on StringBuffer are synchronised for thread-safety which will impact the performance.
+
+StringBuffer sb = new StringBuffer();
+
+sb.append("All the power is within you.");
+
+sb.append("You can do anything and everything.");
+
+System.out.println(sb);
+
+StringBuilder is just like StringBuffer but methods are not synchronised. If thread-safety is required, use StringBuffer, otherwise use StringBuilder.
+
+Q) What is the advantage of String immutability?
+
+1. Performance:
+
+Because strings are immutable, string pooling is possible, improving the performance of the application.
+
+2. Thread Safe
+
+Immutable objects are thread safe as they cannot be modified once created. They can only be used as read only objects.And so they are thread safe even when used by multiple threads.
+
+3. Security
+
+Because strings are immutable , we don't have to worry about that kind of security threat. For example no one can have access to a file or password which they have access to and change the filename or password itself.
+
+Q) What are the different ways to create a thread?
+
+Extending the Thread class
+
+public class MultiThreaded extends Thread
+
+Implementing Runnable interface
+
+public class CheckProcessor implements Runnable
+
+Implementing the java.util.concurrent.Callable interface with the java.util.concurrent.Executor framework to pool the threads.
+
+Q) What are Functional Interfaces ?
+
+If an interface has one and only one abstract method then it is called a Functional interface and that abstract method is called a Functional method. Examples of inbuilt functional interfaces are Runnable, which has the run method which is abstract and Comparator which has the compare to which is the only abstract method in that interface.
+
+Java 8 also provides us with an annotation called Functional Interface. If you mark your interfaces with this annotation then you can only define one abstract method in that interface. This is required to implement lambda expressions. If you try to add more than one abstract method, once you mark your interface with @Functional Interface annotation, the compiler will raise a compile time error.
+
+@FunctionalInterface
+
+public interface A {
+
+void myMethod();
+
+Q) What are Lambda Expressions?
+
+The main goal of lambda expressions is to introduce the benefits of functional programming to Java. A lambda is an anonymous function in Java that is a function which does not have a name, return type and access modifiers. If we have a single line we do not need the flower brackets. If we have multiple statements then we can use the flower brackets here. It doesn't have the access modifiers and the return type, etc.Lambda expressions are also known as anonymous functions or closures.With a very few lines of code, we can do a lot of work using lambda expressions.
+
+Thread t = new Thread(()->{
+
+for(int i=1;i<=10;i++){
+
+System.out.println("Child Thread");
+
+}
+
+});
+
+t.start();
+
+There are several benefits of lambdas,
+
+With a few lines of code we can do a lot of work
+
+Easy to implement anonymous inner classes
+
+And also you can pass lambda expressions as parameters to other methods which are very powerful as well.
+
+You need to use functional interfaces to express lambdas.
+
+Q) What are Predicates?
+
+A predicate is a function with a single argument and it returns a Boolean value. To implement a predicate, we use the Predicate interface. it is a functional interface with only one abstract method that can take in any type of argument. But it always should return a Boolean true or false. Since it is a functional interface we can express it as a lambda expression.
+
+Example:
+
+Predicate<Integer> p = i->(i>20);
+
+System.out.println(p.test(15));
+
+Q) What are Streams?
+
+Using streams we can process the data in a declarative manner very similar to that of SQL, Structured Query Language which is used against a database.
+
+It makes it very easy for us to process the data or objects inside a collection.
+
+These Streams are not the same as java.IO streams which are meant for reading and writing files.
+
+Stream is an interface in the java.util.stream package.
+
+We can get a stream on a collection by invoking the stream method which was introduced or which was added to the Collection interface in Java 1.8
+
+Once we have a stream to process the collection, we will do it in two steps or two phases.
+
+List<Integer> l1 = new ArrayList<>();
+
+for (int i = 0; i <= 10; i++) {
+
+l1.add(i);
+
+}
+
+List<Integer> l2 = l1.stream()
+
+.filter(i -> i % 2 == 0)
+
+.collect(Collectors.toList());
+
+The first phase is configuring the stream .We can do the configuration in two ways, filtering wherein we invoke the filter method, pass it a predicate which will evaluate into a Boolean expression as you know what a predicate is and the objects in the collection will be filtered out based on the predicate and it will return the stream which will have the filtered out objects.
+
+The second way of configuring is using a map method. The map method on the stream again, returns a stream but this time it doesn't take a Boolean expression but it takes a function instead. It will create a new collection or a new object for every object in the collection. If you want to have a requirement wherein you want to create a new set of objects, a new set of collections based on the input then you will use a map. It will map each input to a corresponding output object.
+
+List<String> l1 = new ArrayList<>();
+
+l1.add("JOHN");
+
+l1.add("BHARATH");
+
+l1.add("JIM");
+
+System.out.println(l1);
+
+List<String> l2 = l1.stream()
+
+.map(s->s.toLowerCase())
+
+.collect(Collectors.toList());
+
+If you simply want to filter you use the filter method,The Stream API provides various methods such as collect, count, sorted, min, max, etc you are going to first configure the Streams and then process the data.
+

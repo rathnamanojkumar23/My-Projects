@@ -1,0 +1,40 @@
+
+	Static vs Non static
+	
+Static Members:
+
+	--> Belong to class 
+	--> Accessed using class name
+	--> Static block is Executed at the time of class loading
+	--> Memory is allocated and variables are initialized during class loading
+
+Non Static Members:
+	
+	--> Belong to the object
+	--> Accessed using the object name
+	--> Time of object creation
+	--> At time of object creation
+	
+	Constuctor vs Method:
+	
+Constructor:
+	
+	--> special
+	--> No return type
+	--> class name
+	--> none
+	--> this
+	--> Not inherited
+	--> default constructor
+	
+	
+Method:
+	
+	--> one task
+	--> Return type
+	--> Any name
+	--> Abstract, final, native, static, synchronised
+	--> this
+	--> inherited
+	--> No default constructor
+	
