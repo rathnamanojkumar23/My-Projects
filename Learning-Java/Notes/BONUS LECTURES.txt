@@ -1,0 +1,101 @@
+Bonus Lecture
+
+Hot And New Courses:
+
+
+
+Mastering GitHub Copilot for Java & Spring Boot Developers
+
+Mastering GitHub Copilot for Python & Django REST Developers
+
+Generative AI For Java Developers with Azure OpenAI ChatGPT
+
+Generative AI using Azure OpenAI Service for Beginners
+
+Generative AI using OpenAI API for Beginners
+Python Logical Programs and Data Structures for beginners
+Java Logical Programs For Beginners and Experienced
+Helm Kubernetes Packaging Manager for Developers and DevOps
+Kafka fundamentals for Java Developers
+Docker for Python Django Developers
+Java Interview Help
+Serverless Using AWS Lambda For Java Developers
+Serverless Using AWS Lambda For Python Developers
+Spring Security
+Gradle for Java Developers
+Devops Tools and AWS for Java Microservice Developers
+Yoga For Beginners
+
+Artificial Intelligence:
+
+
+Mastering GitHub Copilot for Java & Spring Boot DevelopersMastering GitHub Copilot for Python & Django REST DevelopersGenerative AI using OpenAI API for Beginners
+Generative AI using Azure OpenAI Service for BeginnersGenerative AI For Java Developers with Azure OpenAI ChatGPT
+
+
+Java Courses: Java Design Patterns, Java Web Services, Java Messaging Service, JUnit and Mockito and Spring Frameworks in Easy Steps, Spring Boot Fundamentals,Spring Data JPA using Hibernate,Spring Data REST.
+
+Core Java Made Easy
+
+Mastering GitHub Copilot for Java & Spring Boot Developers
+
+Generative AI For Java Developers with Azure OpenAI ChatGPT
+Java Logical Programs For Beginners and Experienced
+JDBC Servlets and JSP - Java Web Development Fundamentals
+Spring Framework in Easy Steps
+Spring Boot Fundamentals
+Spring Data JPA Using Hibernate
+Full Stack Development Using Spring Boot Angular and React
+Spring Security
+Java Web Services
+Java Web Service Part 2
+Junit and Mockito Crash Course
+Spring Cloud Fundamentals
+Java Design Patterns
+REST APIs using Spring Data REST
+Java Message Service - JMS Fundamentals
+Java Interview Help
+Serverless Using AWS Lambda For Java Developers
+Kafka fundamentals for Java Developers
+
+
+Devops Tools:
+
+
+Helm Kubernetes Packaging Manager for Developers and DevOps
+Devops Tools and AWS for Java Microservice Developers
+Maven Crash Course
+Gradle For Java Developers
+
+
+Java Script Courses:
+
+
+Node JS Made Easy for MEAN and MERN Stack
+React in easy steps with Node and Java Backend
+Angular crash course with Node and Java Backend
+Typescript for beginners
+
+XML Courses:
+
+
+XML and XML Schema Definition in Easy Steps
+XSLT XPATH and XQuery Fundamentals
+
+Python:
+
+
+Python for beginners
+
+Mastering GitHub Copilot for Python & Django REST Developers
+Python Logical Programs and Data Structures for beginners
+Django for Python Developers
+Django REST Framework
+Serverless Using AWS Lambda For Python Developers
+Docker for Python Django Developers
+
+Free Courses:
+
+
+JavaScript Fundamentals
+Advanced and Object Oriented JavaScript and ES6
